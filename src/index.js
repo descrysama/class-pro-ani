@@ -1,11 +1,32 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
 
-import confetti from 'canvas-confetti';
+class Proprio {
+  constructor(nickname, phone, city) {
+    this.nickname = nickname;
+    this.phone = phone;
+    this.city = city;
+  }
+}
 
-confetti.create(document.getElementById('canvas'), {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+class Animal {
+  constructor(nickname, race) {
+    this.nickname = nickname;
+    this.race = race;
+  }
+
+  getInfo(maitre) {
+    let createli = document.createElement('li');
+    createli.textContent = 'Je suis ' + this.nickname + ', je suis un ' + this.race + ' et mon maitre est ' + maitre.nickname + ' qui vit à ' + maitre.city;
+    document.body.appendChild(createli);
+  }
+
+}
+
+let Marc = new Proprio('Marc', '+33965678923', 'Villeurbanne');
+let Helene = new Proprio('Helene', '+33665636281', 'Paris');
+
+let Caramel = new Animal('Caramel', 'Chat');
+let Rex = new Animal('Rex', 'Chien');
+
+Caramel.getInfo(Marc)
+
+Rex.getInfo(Helene)
